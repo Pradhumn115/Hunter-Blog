@@ -12,16 +12,16 @@ import * as fs from 'fs'
 //   }))
 // }
 export const getblog= async (slug)=>{
-  try{
-    let data2 = fs.readFileSync(`blogdata/${slug}.json`)
-    return (JSON.parse(data2))
-    }catch(e){
-      console.log(slug)
-      return console.log({error: "Blog data not found"})
+  // try{
+  //   let data2 = fs.readFileSync(`blogdata/${slug}.json`)
+  //   return (JSON.parse(data2))
+  //   }catch(e){
+  //     console.log(slug)
+  //     return console.log({error: "Blog data not found"})
       
-    }
-  // let data = await fetch(`http://localhost:3000/api/getblog?slug=${slug}`,{cache:'no-store'})
-  // let blog = await data.json()
+  //   }
+  let data = await fetch(`http://localhost:3000/api/getblog/${slug}`,{cache:'no-store'})
+  let blog = await data.json()
   return blog
 }
 
