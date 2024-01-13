@@ -1,10 +1,19 @@
 import React from 'react'
 import Link from 'next/link'
+import * as fs from 'fs'
 
 const serverside= async ()=>{
-  let data = await fetch('http://localhost:3000/api/blogs',{cache:'no-store'})
-  const allBlogs = await data.json()
-  return allBlogs
+  let data = fs.readdirSync(`blogdata`)
+  let blogs;
+  let blogcontent=[]
+  
+  for(let filedata of data){
+      blogs = JSON.parse(fs.readFileSync(`blogdata/${filedata}`))
+      blogcontent.push(blogs)
+  }
+  // let data = await fetch('http://localhost:3000/api/blogs',{cache:'no-store'})
+  // const allBlogs = await data.json()
+  return blogcontent
 }
 
 const blog = async () => {

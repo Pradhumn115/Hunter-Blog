@@ -1,8 +1,8 @@
-"use client"
+
 import { data } from "autoprefixer";
 import { useParams, useSearchParams } from "next/navigation"
 import { NextRequest, NextResponse } from "next/server"
-
+import * as fs from 'fs'
 
 // export const generateStaticParams= async ()=>{
 //   let data = await fetch('http://localhost:3000/api/blogs',{cache:'force-cache'})
@@ -12,10 +12,21 @@ import { NextRequest, NextResponse } from "next/server"
 //   }))
 // }
 export const getblog= async (slug)=>{
-  let data = await fetch(`http://localhost:3000/api/getblog?slug=${slug}`,{cache:'no-store'})
-  let blog = await data.json()
+  try{
+    let data2 = fs.readFileSync(`blogdata/${slug}.json`)
+    return (JSON.parse(data2))
+    }catch(e){
+      console.log(slug)
+      return console.log({error: "Blog data not found"})
+      
+    }
+  // let data = await fetch(`http://localhost:3000/api/getblog?slug=${slug}`,{cache:'no-store'})
+  // let blog = await data.json()
   return blog
 }
+
+
+
 const Slug =  async ({params}) => {
   let blog = await getblog(params.slug)
   return (
