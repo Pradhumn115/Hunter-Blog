@@ -1,12 +1,12 @@
 {
   "/_not-found": "app/_not-found.js",
-  "/api/getblog/[slug]/route": "app/api/getblog/[slug]/route.js",
-  "/api/blogs/route": "app/api/blogs/route.js",
-  "/blog/page": "app/blog/page.js",
   "/about/page": "app/about/page.js",
+  "/api/blogs/route": "app/api/blogs/route.js",
+  "/api/getblog/[slug]/route": "app/api/getblog/[slug]/route.js",
   "/api/postcontact/route": "app/api/postcontact/route.js",
+  "/blog/page": "app/blog/page.js",
   "/contact/page": "app/contact/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/blogpost/[slug]/page": "app/blogpost/[slug]/page.js"
 }

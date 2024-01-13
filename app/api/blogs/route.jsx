@@ -1,9 +1,7 @@
 import * as fs from 'fs';
-import { unstable_noStore as noStore } from 'next/cache';
 import { NextResponse } from 'next/server';
 
 export async function GET(req){
-    noStore();
     let data = fs.readdirSync(`blogdata`)
     let blogs;
     let blogcontent=[]
